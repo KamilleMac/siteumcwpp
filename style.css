@@ -1,0 +1,486 @@
+/* =====================================================
+   ESTILO DO SITE
+   Autora: Kamille Machado
+   UMC - Análise e Desenvolvimento de Sistemas
+   Data: 25/10/2026
+
+   Dica: para trocar as cores, mude só a parte "CORES".
+   ===================================================== */
+
+/* ---------- CORES E FONTES ---------- */
+:root {
+  --escuro: #0B2B20;       /* fundo escuro (topo e rodapé) */
+  --escuro-2: #143D2E;     /* fundo da tela do celular */
+  --cor: #4BE08A;          /* cor de destaque */
+  --cor-suave: #DDF3E6;    /* destaque em versão clara */
+  --papel: #F2F7F4;        /* fundo da página */
+  --branco: #FFFFFF;
+  --tinta: #10241B;        /* cor do texto */
+  --cinza: #52695D;        /* texto menos importante */
+  --linha: #DCE7E0;        /* linhas e bordas */
+  --ok: #1FA37E;           /* verde: seguro */
+  --perigo: #E5484D;       /* vermelho: perigo */
+  --fonte-titulo: "Bricolage Grotesque", system-ui, sans-serif;
+  --fonte-texto: "Figtree", system-ui, sans-serif;
+}
+
+/* ---------- BASE ---------- */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--fonte-texto);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+h1, h2, h3 { margin: 0; font-family: var(--fonte-titulo); line-height: 1.1; letter-spacing: -0.02em; }
+p { margin: 0; }
+
+/* Caixa que centraliza o conteúdo */
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+
+section { padding: 72px 0; }
+
+/* ---------- TOPO ---------- */
+.topo { background: var(--escuro); color: #fff; }
+
+.topo .wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.topo span:last-child { color: #B9B6D6; font-weight: 600; }
+
+/* ---------- ABERTURA (título grande + celular) ---------- */
+.hero { background: var(--escuro); color: #fff; padding-bottom: 72px; }
+
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;   /* texto à esquerda, celular à direita */
+  gap: 48px;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.etiqueta {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid var(--cor);
+  border-radius: 999px;
+  color: var(--cor);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.hero h1 { margin: 20px 0; font-size: clamp(40px, 7vw, 68px); font-weight: 800; }
+.hero h1 em { font-style: normal; color: var(--cor); }
+.hero .lead { max-width: 34ch; font-size: 21px; color: #D6D4EA; }
+
+/* ---------- BOTÕES ---------- */
+.botoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;                      /* tamanho bom para tocar com o dedo */
+  padding: 0 26px;
+  border-radius: 999px;
+  background: var(--cor);
+  color: var(--escuro);
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.15s;
+}
+
+.botao.simples { background: transparent; color: #fff; border: 1px solid #5B5780; }
+.botao:active { transform: scale(0.97); }
+
+a:focus-visible { outline: 3px solid var(--cor); outline-offset: 3px; }
+
+/* ---------- CELULAR DESENHADO ---------- */
+.celular {
+  width: min(270px, 100%);
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 40px;
+  background: #0B0A1A;
+  border: 2px solid #3A3566;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  animation: flutuar 5s ease-in-out infinite;
+}
+
+.tela {
+  position: relative;
+  height: 480px;
+  overflow: hidden;
+  border-radius: 30px;
+  background: var(--escuro-2);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.tela .topinho {
+  padding: 18px 16px 8px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #B9B6D6;
+}
+
+/* Aviso que fica no pé da tela */
+.aviso {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 18px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: var(--cor);
+  color: var(--escuro);
+  font-weight: 800;
+  text-align: center;
+  animation: pulsar 2s ease-in-out infinite;
+}
+
+.aviso.vermelho { background: var(--perigo); color: #fff; }
+.aviso.alto { bottom: 64px; }
+
+/* Mensagens do celular do site do WhatsApp */
+.sms {
+  margin: 8px 14px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #2E4A3D;
+}
+
+.sms small { display: block; color: #A9D7BE; font-size: 12px; font-weight: 700; }
+.sms b { font-size: 20px; letter-spacing: 0.08em; }
+
+.conversa { display: flex; flex-direction: column; gap: 10px; margin: 18px 14px 0; }
+
+.balao {
+  align-self: flex-start;
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 16px 16px 16px 4px;
+  background: #1A2D26;
+}
+
+/* Barras da "onda de voz" do site de IA */
+.onda { position: absolute; left: 0; right: 0; bottom: 12px; width: 100%; }
+.onda rect { transform-box: fill-box; transform-origin: center; animation: mexer 1.2s ease-in-out infinite; }
+.onda rect:nth-child(2n) { animation-delay: 0.2s; }
+.onda rect:nth-child(3n) { animation-delay: 0.5s; }
+
+/* ---------- TÍTULOS DAS SEÇÕES ---------- */
+.titulo-secao { margin-bottom: 32px; }
+.titulo-secao h2 { font-size: clamp(30px, 5vw, 44px); font-weight: 800; }
+
+.pequeno {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--cor);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- 3 FATOS RÁPIDOS (logo abaixo da abertura) ---------- */
+.fatos { padding: 0; margin-top: -36px; }
+.fatos .wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+.fato {
+  padding: 22px 24px;
+  background: var(--branco);
+  border: 1px solid var(--linha);
+  border-radius: 16px;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(21, 19, 43, 0.08);
+}
+
+/* ---------- O QUE É ---------- */
+.explica .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.explica .texto { color: var(--cinza); }
+.explica p + p { margin-top: 14px; }
+
+/* ---------- CARTÕES: passos e ajuda ---------- */
+.passos .grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+.passo {
+  padding: 28px;
+  background: var(--branco);
+  border: 1px solid var(--linha);
+  border-radius: 16px;
+}
+
+.passo b { display: block; margin-bottom: 14px; font-family: var(--fonte-titulo); font-size: 54px; line-height: 1; color: var(--cor); }
+.passo h3 { margin-bottom: 8px; font-size: 22px; }
+.passo p { color: var(--cinza); }
+
+/* A seção de ajuda tem fundo branco e cartões cinza-claro */
+.ajuda { background: var(--branco); }
+.ajuda .passo { background: var(--papel); }
+
+/* ---------- CARTÕES COM ÍCONE: sinais e como combater ---------- */
+.sinais .grade { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+.sinal {
+  display: flex;
+  gap: 16px;
+  padding: 22px;
+  background: var(--branco);
+  border: 1px solid var(--linha);
+  border-radius: 16px;
+}
+
+.sinal svg { flex: none; width: 44px; height: 44px; padding: 10px; border-radius: 12px; background: #FDE7E8; color: var(--perigo); }
+.sinal h3 { margin-bottom: 4px; font-size: 19px; }
+.sinal p { color: var(--cinza); font-size: 16px; line-height: 1.5; }
+
+/* Em "como combater" o ícone é verde */
+.combate .sinal svg { background: var(--cor-suave); color: var(--ok); }
+
+/* ---------- COMO SE PROTEGER (lista + regra de ouro) ---------- */
+.protege { background: var(--branco); }
+.protege .wrap { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: start; }
+
+.lista { margin: 0; padding: 0; list-style: none; }
+
+.lista li {
+  position: relative;
+  padding: 14px 0 14px 44px;
+  border-bottom: 1px solid var(--linha);
+  font-weight: 700;
+}
+
+.lista li:last-child { border-bottom: 0; }
+
+/* Bolinha verde com o "certo" */
+.lista li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 17px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--ok) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center / 16px no-repeat;
+}
+
+.lista span { display: block; color: var(--cinza); font-size: 16px; font-weight: 500; }
+
+.regra {
+  position: sticky;                      /* acompanha a rolagem no computador */
+  top: 24px;
+  padding: 32px;
+  border-radius: 20px;
+  background: var(--escuro);
+  color: #fff;
+}
+
+.regra small { color: var(--cor); font-size: 13px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.regra p { margin-top: 12px; font-family: var(--fonte-titulo); font-size: 28px; font-weight: 800; line-height: 1.2; }
+
+/* ---------- JÁ CAIU NO GOLPE? ---------- */
+.caixa { padding: 40px; border-radius: 24px; background: var(--cor-suave); }
+
+.caiu ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 0; padding: 0; list-style: none; counter-reset: numero; }
+
+.caiu li { counter-increment: numero; padding: 20px; border-radius: 14px; background: var(--branco); font-weight: 700; }
+
+/* Bolinha com o número do passo */
+.caiu li::before {
+  content: counter(numero);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  background: var(--escuro);
+  color: #fff;
+  font-size: 15px;
+}
+
+/* ---------- PANFLETO (frente e verso) ---------- */
+.panfleto { background: var(--branco); }
+
+.folhas { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; }
+
+.folhas figure { flex: 0 1 300px; margin: 0; text-align: center; }
+
+.folhas img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--linha);
+  box-shadow: 0 16px 40px rgba(21, 19, 43, 0.15);
+  transition: transform 0.2s;
+}
+
+.folhas a:hover img { transform: translateY(-4px); }
+.folhas figcaption { margin-top: 12px; color: var(--cinza); font-size: 15px; font-weight: 700; }
+
+/* ---------- RODAPÉ: SOBRE O PROJETO ---------- */
+.sobre { padding: 64px 0 48px; background: var(--escuro); color: #fff; }
+.sobre h2 { margin-bottom: 28px; font-size: 28px; }
+.sobre dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin: 0; }
+.sobre dt { color: #B9B6D6; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.sobre dd { margin: 4px 0 0; font-size: 18px; font-weight: 700; }
+.sobre .fim {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #3A3566;
+  color: #B9B6D6;
+  font-size: 15px;
+}
+
+/* Botão "Criado com carinho por..." */
+.criador {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: var(--cor);
+  color: var(--escuro);
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.15s;
+}
+
+.criador span { transition: transform 0.15s; }
+.criador:active { transform: scale(0.97); }
+.criador:hover span { transform: translateX(4px); }
+
+/* ---------- PASSO A PASSO NA TELA (desenhos de celular) ---------- */
+.telas { background: var(--papel); }
+.telas .grade { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.telas .nota { margin-top: 24px; color: var(--cinza); font-size: 16px; }
+
+.etapa { padding: 24px; background: var(--branco); border: 1px solid var(--linha); border-radius: 16px; }
+.etapa h3 { margin: 18px 0 6px; font-size: 22px; }
+.etapa p { color: var(--cinza); font-size: 17px; line-height: 1.5; }
+
+/* Número do passo */
+.etapa .num { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; margin-bottom: 14px; border-radius: 50%; background: var(--escuro); color: #fff; font-family: var(--fonte-titulo); font-size: 20px; font-weight: 800; }
+
+/* O celular desenhado */
+.celular { width: 100%; max-width: 210px; margin: 0 auto; padding: 8px; border-radius: 26px; background: var(--escuro); }
+.visor { height: 262px; overflow: hidden; border-radius: 19px; background: #fff; color: var(--tinta); font-size: 14px; font-weight: 700; line-height: 1.3; }
+.visor .barra { display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #2A7F62; color: #fff; font-size: 15px; }
+.visor .item { padding: 13px 12px; border-bottom: 1px solid var(--linha); }
+.visor .item small { display: block; color: var(--cinza); font-size: 12px; font-weight: 600; }
+.visor .centro { padding: 18px 12px; text-align: center; }
+
+/* Onde tocar: contorno e etiqueta */
+.alvo { position: relative; outline: 3px solid var(--perigo); outline-offset: -3px; background: #FFF3F3; border-radius: 8px; }
+.alvo::after { content: "Toque aqui"; position: absolute; right: 6px; bottom: -9px; padding: 1px 8px; border-radius: 10px; background: var(--perigo); color: #fff; font-size: 11px; font-weight: 800; }
+
+.visor .botao-verde, .visor .botao-vermelho { display: inline-block; margin-top: 10px; padding: 9px 22px; border-radius: 20px; color: #fff; font-weight: 800; }
+.visor .botao-verde { background: #2A7F62; }
+.visor .botao-vermelho { background: var(--perigo); }
+.visor .pin { display: flex; justify-content: center; gap: 4px; margin-top: 12px; }
+.visor .pin i { width: 22px; height: 28px; border: 2px solid var(--escuro-2); border-radius: 6px; }
+.visor .balao { margin: 8px 12px; padding: 9px 11px; border-radius: 12px; background: #E8F4EF; }
+.visor .balao.meu { background: #DCF8C6; margin-left: 30px; }
+
+@media (max-width: 1000px) { .telas .grade { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 800px)  { .telas .grade { grid-template-columns: 1fr; } .celular { max-width: 240px; } }
+
+/* ---------- QUANTAS PESSOAS CAEM (números com fonte) ---------- */
+.dados { background: var(--papel); }
+.dados .grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.dado { padding: 28px; background: var(--branco); border: 1px solid var(--linha); border-radius: 16px; }
+.dado b { display: block; margin-bottom: 10px; font-family: var(--fonte-titulo); font-size: 46px; white-space: nowrap; line-height: 1; color: var(--cor); }
+.dado h3 { margin-bottom: 8px; font-size: 21px; }
+.dado p { color: var(--cinza); font-size: 16px; line-height: 1.5; }
+.dados .nota { margin-top: 24px; color: var(--cinza); font-size: 16px; }
+@media (max-width: 1000px) { .dados .grade { grid-template-columns: 1fr; } }
+
+/* ---------- ANIMAÇÕES ---------- */
+@keyframes flutuar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes pulsar  { 0%, 100% { transform: scale(1); }      50% { transform: scale(1.05); } }
+@keyframes mexer   { 0%, 100% { transform: scaleY(0.35); }  50% { transform: scaleY(1); } }
+@keyframes entrar  { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+
+/* O título da abertura aparece ao carregar */
+.hero .wrap > div:first-child { animation: entrar 0.8s ease both; }
+
+/* Os blocos aparecem ao rolar (o script.js coloca essas classes) */
+.js .aparece { opacity: 0; transform: translateY(24px); transition: opacity 0.6s, transform 0.6s; }
+.js .aparece.visivel { opacity: 1; transform: none; }
+
+/* Mouse em cima: o cartão sobe um pouquinho (só no computador) */
+@media (hover: hover) {
+  .botao:hover { transform: translateY(-2px); }
+  .passo:hover, .sinal:hover, .fato:hover { transform: translateY(-4px); }
+}
+
+/* Quem pediu "menos movimento" no aparelho não vê animações */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+  .js .aparece { opacity: 1; transform: none; }
+}
+
+/* ---------- TABLET ---------- */
+@media (max-width: 1000px) {
+  .hero .wrap { gap: 24px; }
+  .passos .grade { grid-template-columns: repeat(2, 1fr); }
+  .caiu ol { grid-template-columns: 1fr; }
+}
+
+/* ---------- CELULAR: tudo em uma coluna ---------- */
+@media (max-width: 800px) {
+  body { font-size: 17px; }
+  section, .caiu { padding: 48px 0; }
+
+  .hero .wrap, .explica .wrap, .protege .wrap { grid-template-columns: 1fr; }
+  .fatos .wrap, .passos .grade, .sinais .grade { grid-template-columns: 1fr; }
+  .sobre dl { grid-template-columns: 1fr; gap: 18px; }
+
+  .topo .wrap { padding-top: 14px; padding-bottom: 14px; font-size: 14px; }
+  .hero { padding-bottom: 56px; }
+  .hero .wrap { padding-top: 28px; }
+  .hero .lead { font-size: 19px; }
+  .botoes .botao { flex: 1 1 100%; justify-content: center; }   /* botão ocupa a largura toda */
+
+  .explica .wrap { gap: 20px; }
+  .regra { position: static; }
+  .caixa { padding: 24px; }
+  .lista li { padding-top: 16px; padding-bottom: 16px; }
+}
+
+/* Alvo pequeno (ex.: três pontinhos): só o contorno, sem etiqueta */
+.alvo.sem-etiqueta::after { content: none; }
+
+/* Três pontinhos do menu, desenhados com CSS */
+.pontinhos { display: flex; flex-direction: column; gap: 3px; padding: 6px 10px; }
+.pontinhos i { width: 5px; height: 5px; border-radius: 50%; background: #fff; }
+.pontinhos { background: rgba(255,255,255,0.15); outline-color: #fff; }
