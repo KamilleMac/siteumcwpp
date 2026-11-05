@@ -12,6 +12,7 @@
   --escuro: #0B2B20;       /* fundo escuro (topo e rodapé) */
   --escuro-2: #143D2E;     /* fundo da tela do celular */
   --cor: #4BE08A;          /* cor de destaque */
+  --cor-forte: #0E7A42;     /* destaque que lê bem sobre fundo claro */
   --cor-suave: #DDF3E6;    /* destaque em versão clara */
   --papel: #F2F7F4;        /* fundo da página */
   --branco: #FFFFFF;
@@ -196,7 +197,7 @@ a:focus-visible { outline: 3px solid var(--cor); outline-offset: 3px; }
 .pequeno {
   display: block;
   margin-bottom: 8px;
-  color: var(--cor);
+  color: var(--cor-forte);
   font-size: 14px;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -231,7 +232,7 @@ a:focus-visible { outline: 3px solid var(--cor); outline-offset: 3px; }
   border-radius: 16px;
 }
 
-.passo b { display: block; margin-bottom: 14px; font-family: var(--fonte-titulo); font-size: 54px; line-height: 1; color: var(--cor); }
+.passo b { display: block; margin-bottom: 14px; font-family: var(--fonte-titulo); font-size: 54px; line-height: 1; color: var(--cor-forte); }
 .passo h3 { margin-bottom: 8px; font-size: 22px; }
 .passo p { color: var(--cinza); }
 
@@ -391,7 +392,7 @@ a:focus-visible { outline: 3px solid var(--cor); outline-offset: 3px; }
 .etapa .num { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; margin-bottom: 14px; border-radius: 50%; background: var(--escuro); color: #fff; font-family: var(--fonte-titulo); font-size: 20px; font-weight: 800; }
 
 /* O celular desenhado */
-.celular { width: 100%; max-width: 210px; margin: 0 auto; padding: 8px; border-radius: 26px; background: var(--escuro); }
+.etapa .celular { width: 100%; max-width: 210px; margin: 0 auto; padding: 8px; border-radius: 26px; background: var(--escuro); }
 .visor { height: 262px; overflow: hidden; border-radius: 19px; background: #fff; color: var(--tinta); font-size: 14px; font-weight: 700; line-height: 1.3; }
 .visor .barra { display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #2A7F62; color: #fff; font-size: 15px; }
 .visor .item { padding: 13px 12px; border-bottom: 1px solid var(--linha); }
@@ -411,17 +412,21 @@ a:focus-visible { outline: 3px solid var(--cor); outline-offset: 3px; }
 .visor .balao.meu { background: #DCF8C6; margin-left: 30px; }
 
 @media (max-width: 1000px) { .telas .grade { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 800px)  { .telas .grade { grid-template-columns: 1fr; } .celular { max-width: 240px; } }
+@media (max-width: 800px)  { .telas .grade { grid-template-columns: 1fr; } .etapa .celular { max-width: 240px; } }
 
 /* ---------- QUANTAS PESSOAS CAEM (números com fonte) ---------- */
 .dados { background: var(--papel); }
 .dados .grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .dado { padding: 28px; background: var(--branco); border: 1px solid var(--linha); border-radius: 16px; }
-.dado b { display: block; margin-bottom: 10px; font-family: var(--fonte-titulo); font-size: 46px; white-space: nowrap; line-height: 1; color: var(--cor); }
+.dado b { display: block; margin-bottom: 10px; font-family: var(--fonte-titulo); font-size: 46px; white-space: nowrap; line-height: 1; color: var(--cor-forte); }
 .dado h3 { margin-bottom: 8px; font-size: 21px; }
 .dado p { color: var(--cinza); font-size: 16px; line-height: 1.5; }
 .dados .nota { margin-top: 24px; color: var(--cinza); font-size: 16px; }
 @media (max-width: 1000px) { .dados .grade { grid-template-columns: 1fr; } }
+
+/* Resumo curto: "o que é" */
+.resumo { margin: 0 0 28px; padding: 20px 24px; border-left: 6px solid var(--cor-forte); border-radius: 12px; background: var(--branco); font-size: 19px; line-height: 1.5; }
+.resumo strong { display: block; margin-bottom: 4px; font-size: 21px; }
 
 /* ---------- ANIMAÇÕES ---------- */
 @keyframes flutuar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
@@ -484,3 +489,10 @@ a:focus-visible { outline: 3px solid var(--cor); outline-offset: 3px; }
 .pontinhos { display: flex; flex-direction: column; gap: 3px; padding: 6px 10px; }
 .pontinhos i { width: 5px; height: 5px; border-radius: 50%; background: #fff; }
 .pontinhos { background: rgba(255,255,255,0.15); outline-color: #fff; }
+
+/* ---------- ENTENDA CADA PALAVRA ---------- */
+.termos .grade { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.termo { padding: 22px 24px; background: var(--branco); border: 1px solid var(--linha); border-left: 6px solid var(--cor-forte); border-radius: 14px; }
+.termo h3 { margin-bottom: 6px; font-size: 21px; }
+.termo p { color: var(--cinza); font-size: 17px; line-height: 1.5; }
+@media (max-width: 800px) { .termos .grade { grid-template-columns: 1fr; } }

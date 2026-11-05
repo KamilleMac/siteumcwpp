@@ -7,7 +7,7 @@
 // Faz os blocos aparecerem suavemente quando você rola a página.
 // Se o navegador não suportar, tudo continua visível normalmente.
 
-var blocos = document.querySelectorAll(".fato, .titulo-secao, .texto, .passo, .etapa, .dado, .sinal, .lista li, .regra, .caixa");
+var blocos = document.querySelectorAll(".fato, .titulo-secao, .texto, .passo, .etapa, .dado, .termo, .sinal, .lista li, .regra, .caixa");
 
 if ("IntersectionObserver" in window) {
   document.documentElement.classList.add("js");
