@@ -28,6 +28,7 @@ Trabalho da faculdade, feito como atividade de **horas de extensão**. O objetiv
 - Como se proteger e passo a passo na tela para ativar a confirmação em duas etapas
 - Como combater e como ajudar outras pessoas
 - O que fazer se já caiu no golpe
+- "Entenda cada palavra": código de verificação, verificação em duas etapas, PIN, aparelhos conectados e golpe do código
 - Números oficiais de golpes digitais no Brasil
 - Panfleto (frente e verso) para imprimir
 

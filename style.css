@@ -496,3 +496,12 @@ a:focus-visible { outline: 3px solid var(--cor); outline-offset: 3px; }
 .termo h3 { margin-bottom: 6px; font-size: 21px; }
 .termo p { color: var(--cinza); font-size: 17px; line-height: 1.5; }
 @media (max-width: 800px) { .termos .grade { grid-template-columns: 1fr; } }
+.termos .grade .termo:last-child:nth-child(odd) { grid-column: 1 / -1; }
+
+/* ---------- JÁ CAIU: passos explicados ---------- */
+.caiu .intro { margin: 0 0 24px; font-size: 20px; line-height: 1.5; font-weight: 700; }
+.caiu ol { grid-template-columns: repeat(2, 1fr); }
+.caiu li strong { display: block; margin-bottom: 6px; font-size: 20px; line-height: 1.25; }
+.caiu li span { display: block; font-weight: 500; font-size: 17px; line-height: 1.55; color: var(--cinza); }
+.caiu li span.onde { margin-top: 12px; padding: 10px 12px; border-radius: 10px; background: var(--cor-suave); color: var(--escuro); font-weight: 700; font-size: 16px; }
+@media (max-width: 1000px) { .caiu ol { grid-template-columns: 1fr; } }
