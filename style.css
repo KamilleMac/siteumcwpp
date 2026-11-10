@@ -360,24 +360,6 @@ a:focus-visible { outline: 3px solid var(--cor); outline-offset: 3px; }
   font-size: 15px;
 }
 
-/* Botão "Criado com carinho por..." */
-.criador {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 48px;
-  padding: 10px 22px;
-  border-radius: 999px;
-  background: var(--cor);
-  color: var(--escuro);
-  font-weight: 800;
-  text-decoration: none;
-  transition: transform 0.15s;
-}
-
-.criador span { transition: transform 0.15s; }
-.criador:active { transform: scale(0.97); }
-.criador:hover span { transform: translateX(4px); }
 
 /* ---------- PASSO A PASSO NA TELA (desenhos de celular) ---------- */
 .telas { background: var(--papel); }
@@ -505,3 +487,90 @@ a:focus-visible { outline: 3px solid var(--cor); outline-offset: 3px; }
 .caiu li span { display: block; font-weight: 500; font-size: 17px; line-height: 1.55; color: var(--cinza); }
 .caiu li span.onde { margin-top: 12px; padding: 10px 12px; border-radius: 10px; background: var(--cor-suave); color: var(--escuro); font-weight: 700; font-size: 16px; }
 @media (max-width: 1000px) { .caiu ol { grid-template-columns: 1fr; } }
+
+/* ---------- BLOCOS EXPLICADOS: o que é, passo a passo e cuidado ---------- */
+.opcoes { background: var(--branco); }
+.opcoes .resumo { background: var(--papel); }
+.opcao { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 32px; margin-top: 24px; padding: 32px; border: 1px solid var(--linha); border-radius: 24px; background: var(--papel); }
+.opcao h3 { margin: 10px 0 10px; font-size: 30px; }
+.opcao p { color: var(--cinza); }
+.opcao .obs { margin-top: 12px; font-size: 16px; }
+.selo { display: inline-block; padding: 4px 12px; border-radius: 999px; background: var(--escuro); color: #fff; font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+.opcao .como { padding: 22px 24px; border: 1px solid var(--linha); border-radius: 18px; background: var(--branco); }
+.opcao .como h4 { margin: 0 0 12px; color: var(--cor-forte); font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; }
+.opcao ol { margin: 0; padding-left: 24px; display: flex; flex-direction: column; gap: 10px; font-weight: 600; }
+.opcao ol li::marker { color: var(--cor-forte); font-weight: 800; }
+.opcao .golpe { grid-column: 1 / -1; padding: 16px 20px; border-radius: 14px; background: #FDE7E8; color: #7A1D20; font-weight: 600; }
+.opcao .golpe strong { color: #7A1D20; }
+.extras { margin-top: 40px; }
+.extras > h3 { margin-bottom: 16px; font-size: 26px; }
+.extras .grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 1000px) { .extras .grade { grid-template-columns: 1fr; } }
+@media (max-width: 800px) { .opcao { grid-template-columns: 1fr; padding: 22px; } .opcao h3 { font-size: 26px; } }
+
+/* =====================================================
+   LAYOUT PRÓPRIO DO SITE DO WHATSAPP
+   Abertura clara, rótulos em "pílula" e cartões mais arredondados.
+   ===================================================== */
+
+/* Abertura em tom claro (o celular continua escuro) */
+.topo { background: var(--cor-suave); color: var(--escuro); }
+.topo span:last-child { color: var(--cinza); }
+.hero { background: linear-gradient(180deg, var(--cor-suave) 0%, var(--papel) 100%); color: var(--tinta); }
+.hero h1 em { color: var(--cor-forte); }
+.hero .lead { max-width: 40ch; color: var(--cinza); }
+.etiqueta { border-color: var(--cor-forte); color: var(--cor-forte); }
+.botao { background: var(--escuro); color: #fff; }
+.botao.simples { background: transparent; color: var(--escuro); border: 2px solid var(--escuro); }
+.fatos { margin-top: 0; padding-top: 24px; }
+.fato { border-top: 5px solid var(--cor-forte); border-radius: 20px; }
+
+/* Rótulo das seções em forma de pílula */
+.pequeno { display: inline-block; padding: 5px 14px; border-radius: 999px; background: var(--cor-suave); }
+
+/* Cartões mais arredondados */
+.passo, .sinal, .etapa, .termo { border-radius: 22px; }
+.passo b { display: inline-grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--cor-suave); font-size: 30px; }
+
+/* ===== Visual de conversa: balões, linha do tempo e faixa verde ===== */
+body { background-color: #EAF3EC; background-image: radial-gradient(rgba(14,122,66,.09) 1.5px, transparent 1.5px); background-size: 26px 26px; }
+.hero .wrap { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+.hero .lead { margin-left: auto; margin-right: auto; max-width: 52ch; }
+.hero .botoes { justify-content: center; }
+.hero .celular { margin-top: 12px; }
+.fatos .wrap { display: flex; flex-direction: column; gap: 12px; max-width: 760px; }
+.fato { align-self: flex-start; max-width: 85%; border: 0; border-radius: 4px 22px 22px 22px; background: #fff; box-shadow: 0 2px 0 rgba(0,0,0,.08); }
+.fato:nth-child(2) { align-self: flex-end; background: #D9FDD3; border-radius: 22px 4px 22px 22px; }
+
+/* Balões nos sinais e nos termos */
+.sinal { border: 0; border-radius: 4px 24px 24px 24px; background: #fff; box-shadow: 0 2px 0 rgba(0,0,0,.08); }
+.sinais .grade .sinal:nth-child(even) { background: #D9FDD3; border-radius: 24px 4px 24px 24px; }
+.termo { border: 0; border-radius: 4px 20px 20px 20px; box-shadow: 0 2px 0 rgba(0,0,0,.08); }
+
+/* Passos em linha do tempo vertical */
+.passos .grade { grid-template-columns: 1fr; gap: 0; max-width: 760px; margin: 0 auto; position: relative; }
+.passos .grade::before { content: ""; position: absolute; left: 27px; top: 10px; bottom: 10px; width: 4px; background: var(--cor-forte); opacity: .35; border-radius: 2px; }
+.passos .passo { position: relative; margin-left: 76px; margin-bottom: 18px; border: 0; background: #fff; border-radius: 4px 22px 22px 22px; }
+.passos .passo b { position: absolute; left: -76px; top: 14px; margin: 0; background: var(--cor-forte); color: #fff; width: 56px; height: 56px; font-size: 28px; }
+
+/* Faixas verdes: estatísticas e "se caiu" */
+.dados { background: var(--escuro); color: #fff; }
+.dados .titulo-secao h2, .dados .dado h3 { color: #fff; }
+.dados .pequeno { background: rgba(255,255,255,.14); color: #fff; }
+.dados .dado { background: var(--escuro-2); border: 0; border-radius: 22px; }
+.dados .dado p, .dados .nota { color: #CFE5D8; }
+.dados .dado b { color: var(--cor); }
+
+/* Títulos das seções com marca verde à esquerda */
+.titulo-secao h2 { padding-left: 16px; border-left: 8px solid var(--cor); }
+.hero .titulo-secao h2 { border: 0; padding: 0; }
+@media (max-width: 700px) { .fato { max-width: 100%; } .passos .grade::before { left: 21px; } .passos .passo { margin-left: 60px; } .passos .passo b { left: -60px; width: 44px; height: 44px; font-size: 22px; } }
+
+/* Telas das novas opções de segurança */
+.telas .sub { margin: 56px 0 6px; font-size: 28px; padding-left: 14px; border-left: 6px solid var(--cor); }
+.telas .sub-texto { margin: 0 0 20px; color: var(--cinza); font-size: 18px; }
+.telas .grade.tres { grid-template-columns: repeat(3, 1fr); }
+.etapa { border: 0; border-radius: 4px 22px 22px 22px; box-shadow: 0 2px 0 rgba(0,0,0,.08); }
+.visor .botao-verde.alvo { outline-offset: 2px; }
+@media (max-width: 1000px) { .telas .grade.tres { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 800px) { .telas .grade.tres { grid-template-columns: 1fr; } }
