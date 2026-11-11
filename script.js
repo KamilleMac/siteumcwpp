@@ -26,3 +26,16 @@ if ("IntersectionObserver" in window) {
     vigia.observe(bloco);
   });
 }
+
+// "O que aconteceu com você?": mostra só a orientação da opção escolhida.
+var botoesEscolha = document.querySelectorAll(".escolha");
+botoesEscolha.forEach(function (botao) {
+  botao.addEventListener("click", function () {
+    document.querySelectorAll(".resposta").forEach(function (r) { r.hidden = true; });
+    botoesEscolha.forEach(function (b) { b.classList.remove("ativa"); });
+    botao.classList.add("ativa");
+    var resposta = document.getElementById(botao.getAttribute("data-alvo"));
+    resposta.hidden = false;
+    resposta.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+});
